@@ -129,6 +129,9 @@ class CardStack extends Component {
   props: Props;
 
   componentWillReceiveProps(props: Props) {
+    if (this.props.index !== props.index) {
+      this.previousIndex = this.props.index;
+    }
     if (props.screenProps !== this.props.screenProps) {
       this._screenDetails = {};
     }
@@ -419,8 +422,8 @@ class CardStack extends Component {
     /* $FlowFixMe */
     return TransitionConfigs.getTransitionConfig(
       this.props.transitionConfig,
-      {},
-      {},
+      {...this.props},
+      {previousIndex: this.previousIndex},
       isModal
     );
   };

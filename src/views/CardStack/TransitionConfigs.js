@@ -99,7 +99,7 @@ function getTransitionConfig(
   if (transitionConfigurer) {
     return {
       ...defaultConfig,
-      ...transitionConfigurer(),
+      ...transitionConfigurer(transitionProps, prevTransitionProps, isModal),
     };
   }
   return defaultConfig;
