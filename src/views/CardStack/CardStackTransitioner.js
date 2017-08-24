@@ -81,7 +81,7 @@ class CardStackTransitioner extends Component<DefaultProps, Props, void> {
       ...TransitionConfigs.getTransitionConfig(
         this.props.transitionConfig,
         transitionProps,
-        prevTransitionProps ? prevTransitionProps.index : undefined,
+        prevTransitionProps,
         isModal
       ).transitionSpec,
     };
